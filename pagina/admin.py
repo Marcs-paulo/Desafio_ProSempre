@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import SiteConfiguration, Usuario, Planos, Usuario_plano
+from .models import SiteConfiguration, Usuario, Planos, Usuario_plano, Noticias
 
 @admin.register(Usuario)
 class UsuarioAdmin(admin.ModelAdmin):
@@ -27,3 +27,9 @@ class SiteConfigurationAdmin(admin.ModelAdmin):
     
     def has_delete_permission(self, request, obj = None):
         return False
+@admin.register(Noticias)
+class NoticiasAdmin(admin.ModelAdmin):
+    list_display = ('titulo', 'data_publicacao', 'destaque', 'categoria', 'criado_por', 'tipo_modal', 'criado_em')
+    search_fields = ('titulo', 'sumario', 'conteudo', 'categoria', 'criado_por__nome_de_usuario')
+    list_filter = ('destaque', 'categoria', 'tipo_modal', 'data_publicacao')
+    date_hierarchy = 'data_publicacao'

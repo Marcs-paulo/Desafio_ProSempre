@@ -69,3 +69,24 @@ class Usuario_plano(models.Model):
 
     def __str__(self):
         return f'{self.usuario.nome_de_usuario} - {self.planos.titulo}'
+    
+class Noticias(models.Model):
+    TIPOSMODAL = [
+        ('autoopen', 'Abrir automático'),
+        ('updade_notification', 'Notificação Atualizada'),
+    ]
+    titulo = models.CharField(max_length=255)
+    sumario = models.TextField()
+    conteudo = models.TextField()
+    imagem = models.ImageField(upload_to="noticias/", max_length= 255, null=True, blank=True)
+    data_publicacao = models.DateTimeField()
+    destaque = models.BooleanField(default=False)
+    categoria = models.CharField(max_length=100)
+    criado_por = models.ForeignKey('Usuario', on_delete=models.CASCADE, related_name='noticias')
+    tipo_modal = models.CharField(max_length=30, choices=TIPOSMODAL, null=True, blank=True)
+    criado_em = models.DateTimeField(auto_now_add=True)
+    atualizado_em = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.titulo
+    
