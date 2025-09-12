@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AZ Fell</title>
+    <!-- Fontes -->
+{% load static %}
+<link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+/>
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+  </head>
+  <body>
+    <!-- Barra de Navegação -->
+    <header>
+      <div class="header-container">
+        <!-- Logo -->
+        <div class="logo">
+          {% if site_config.logo %}
+            <img src="{{ site_config.logo.url }}" alt="Logo {{ site_config.title }}">
+          {% else %}
+          <svg
+            width="107"
+            height="59"
+            viewBox="0 0 107 59"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <mask
+              id="mask0_45_4"
+              style="mask-type: luminance"
+              maskUnits="userSpaceOnUse"
+              x="0"
+              y="50"
+              width="107"
+              height="9"
+            >
+              <path d="M0 50.8039H106.533V58.7866H0V50.8039Z" fill="white" />
+            </mask>
+            <g mask="url(#mask0_45_4)">
+              <path
+                d="M104.864 58.7865H57.4299C57.0128 58.7865 56.5956 58.6205 56.2635 58.2884L53.2665 55.3966L50.2694 58.2884C49.9373 58.6205 49.5242 58.7865 49.1071 58.7865H1.67268C0.757361 58.7865 0.0080986 58.0413 0.0080986 57.1341C0.0080986 56.2229 0.757361 55.4817 1.67268 55.4817H48.4388L52.1001 51.9257C52.7683 51.2656 53.7646 51.2656 54.4329 51.9257L58.0942 55.4817H104.864C105.78 55.4817 106.529 56.2229 106.529 57.1341C106.529 58.0413 105.78 58.7865 104.864 58.7865Z"
+                fill="white"
+              />
+            </g>
+            <mask
+              id="mask1_45_4"
+              style="mask-type: luminance"
+              maskUnits="userSpaceOnUse"
+              x="10"
+              y="32"
+              width="43"
+              height="20"
+            >
+              <path
+                d="M10.2872 32.3478H52.7967V51.8407H10.2872V32.3478Z"
+                fill="white"
+              />
+            </mask>
+            <g mask="url(#mask1_45_4)">
+              <path
+                d="M11.2431 35.5677L20.3963 32.3479C20.3963 32.3479 43.2791 32.761 52.0192 46.1424V51.0187C52.0192 51.0187 38.7026 35.5677 11.2431 35.5677Z"
+                fill="white"
+              />
+            </g>
+            <path
+              d="M9.16123 38.4594L14.155 36.8069C14.155 36.8069 37.455 36.8069 50.7716 50.6055C50.7716 50.6865 33.2956 39.2856 9.16123 38.4594Z"
+              fill="white"
+            />
+            <path
+              d="M6.66238 45.7292L9.16128 40.8569C9.16128 40.8569 35.7905 41.6832 49.9373 50.6054C49.9373 50.6864 16.6498 43.3356 6.66238 45.7292Z"
+              fill="white"
+            />
+            <path
+              d="M5.00181 49.8602C5.00181 49.8602 19.979 44.988 49.9373 52.3388C49.9373 52.3388 19.1487 49.119 4.1675 52.3388L5.00181 49.8602Z"
+              fill="white"
+            />
+            <mask
+              id="mask2_45_4"
+              style="mask-type: luminance"
+              maskUnits="userSpaceOnUse"
+              x="53"
+              y="32"
+              width="43"
+              height="20"
+            >
+              <path
+                d="M53.8335 32.3478H95.3062V51.8407H53.8335V32.3478Z"
+                fill="white"
+              />
+            </mask>
+            <g mask="url(#mask2_45_4)">
+              <path
+                d="M94.8769 35.5677L85.7238 32.3479C85.7238 32.3479 62.8368 32.761 54.1008 46.1424V51.0187C54.1008 51.0187 67.4134 35.5677 94.8769 35.5677Z"
+                fill="white"
+              />
+            </g>
+            <path
+              d="M96.9587 38.4594L91.9649 36.8069C91.9649 36.8069 68.6609 36.8069 55.3483 50.6055C55.3483 50.6865 72.8243 39.2856 96.9587 38.4594Z"
+              fill="white"
+            />
+            <path
+              d="M99.4534 45.7292L96.9586 40.8569C96.9586 40.8569 70.3254 41.6832 56.1785 50.6054C56.1785 50.6864 89.466 43.3356 99.4534 45.7292Z"
+              fill="white"
+            />
+            <path
+              d="M101.118 49.8602C101.118 49.8602 86.1368 44.988 56.1785 52.3388C56.1785 52.3388 86.9711 49.119 101.952 52.3388L101.118 49.8602Z"
+              fill="white"
+            />
+            <mask
+              id="mask3_45_4"
+              style="mask-type: luminance"
+              maskUnits="userSpaceOnUse"
+              x="25"
+              y="13"
+              width="29"
+              height="9"
+            >
+              <path
+                d="M25.5155 13.4785H53.8335V21.773H25.5155V13.4785Z"
+                fill="white"
+              />
+            </mask>
+            <g mask="url(#mask3_45_4)">
+              <path
+                d="M39.3748 17.245C39.1035 16.8845 33.7372 9.91841 25.556 16.273C25.556 16.273 30.6915 14.7785 33.729 15.9611C35.3815 16.6091 39.0508 21.1776 39.3627 21.5664C39.3667 21.5705 39.3708 21.5745 39.3748 21.5786C39.3748 21.5745 39.3829 21.5705 39.3829 21.5664C39.6948 21.1776 43.3642 16.6091 45.0166 15.9611C48.0541 14.7785 53.1896 16.273 53.1896 16.273C45.0085 9.91841 39.6421 16.8845 39.3748 17.245Z"
+                fill="white"
+              />
+            </g>
+            <mask
+              id="mask4_45_4"
+              style="mask-type: luminance"
+              maskUnits="userSpaceOnUse"
+              x="48"
+              y="21"
+              width="22"
+              height="8"
+            >
+              <path
+                d="M48.6494 21.773H69.3857V28.6622H48.6494V21.773Z"
+                fill="white"
+              />
+            </mask>
+            <g mask="url(#mask4_45_4)">
+              <path
+                d="M59.3375 25.2723C59.1472 25.013 55.2875 20.0072 49.4108 24.5716C49.4108 24.5716 53.1004 23.4983 55.2834 24.3529C56.4701 24.8146 59.1107 28.0992 59.3294 28.3787C59.3335 28.3787 59.3375 28.3827 59.3375 28.3868C59.3416 28.3827 59.3456 28.3787 59.3456 28.3787C59.5684 28.0992 62.209 24.8146 63.3957 24.3529C65.5787 23.4983 69.2683 24.5716 69.2683 24.5716C63.3876 20.0072 59.5319 25.013 59.3375 25.2723Z"
+                fill="white"
+              />
+            </g>
+            <mask
+              id="mask5_45_4"
+              style="mask-type: luminance"
+              maskUnits="userSpaceOnUse"
+              x="39"
+              y="-1"
+              width="34"
+              height="12"
+            >
+              <path
+                d="M39.3181 -0.000106812H72.1723V10.3681H39.3181V-0.000106812Z"
+                fill="white"
+              />
+            </mask>
+            <g mask="url(#mask5_45_4)">
+              <path
+                d="M55.5589 4.58442C55.243 4.15916 48.9573 -3.99767 39.3748 3.4423C39.3748 3.4423 45.3891 1.69267 48.9492 3.08184C50.881 3.83921 55.1822 9.18934 55.5467 9.64295C55.5467 9.647 55.5548 9.6551 55.5589 9.65915C55.5629 9.6551 55.567 9.647 55.571 9.64295C55.9315 9.18934 60.2367 3.83921 62.1686 3.08184C65.7286 1.69267 71.7429 3.4423 71.7429 3.4423C62.1605 -3.99767 55.8748 4.15916 55.5589 4.58442Z"
+                fill="white"
+              />
+            </g>
+          </svg>
+          {% endif %}
+        </div>
+
+        <!-- Navegação -->
+        <nav id="navigation">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#noticias">Notícias</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#sobre">Sobre nós</a></li>
+          </ul>
+        </nav>
+
+        <!-- Botão CTA da Navbar-->
+        <button class="cta-button">TESTAR GRÁTIS</button>
+
+        <!-- Menu mobile -->
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+    
+
+    <!-- Seção Hero -->
+    <section class="hero-section">
+      <!-- Background da mulher lendo -->
+      <div class="hero-background">
+      </div>
+
+      <!-- Container principal -->
+      <div class="hero-container">
+       
+
+        <!-- Mockup dos smartphones -->
+        <div
+          class="mockup-container"
+          style="display: flex; justify-content: center; align-items: center"
+        >
+          <img
+            src="{% static 'images/mockup_smartphones.png' %}"
+            alt="Mockup de dois smartphones mostrando o livro The True Love Story"
+            style="max-width: 100%; height: auto"
+          />
+        </div>
+
+        <!-- Conteúdo textual perto dos smartphones-->
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Sua próxima aventura está nas nossas páginas!
+          </h1>
+          
+          <a href="#planos" class="hero-cta">TESTAR GRÁTIS</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Benefícios -->
+    <!-- Seção de Benefícios -->
+<section class="pricing-section">
+  <div class="pricing-container">
+
+    <!-- Card de Preço com Mockup Sobreposto -->
+    <div class="price-card">
+      <div class="price-content">
+        <div class="price-header">
+          <h2 class="price-title">Tudo isso por apenas</h2>
+          <div class="price-amount">R$ 19,90</div>
+          <p class="price-disclaimer">no primeiro mês depois <br> R$ 29,90</p>
+        </div>
+        
+        <a href="#" class="price-cta">Contratar</a>
+      </div>
+      
+      <!-- Mockup do smartphone posicionado metade dentro/fora -->
+      <div class="phone-mockup">
+        <img src="{% static '/Images/smartphone-planos.png' %}" alt="Mockup do aplicativo">
+      </div>
+    </div>
+    
+    <!-- Card de Benefícios -->
+    <div class="benefits-card">
+      <h2 class="benefits-title">
+        <span class="benefits-title-beneficios">Benefícios</span> do nosso plano <br><span class="benefits-title-angelical">Angelical</span>
+      </h2>
+      
+      <div class="benefits-list">
+    
+    <!-- Card de Benefícios -->
+    <div class="benefits-card">      
+      <div class="benefits-list">
+        <!-- Curadoria Especializada -->
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.5 9.54896C12.5 9.54896 7.29167 5.86458 7.29167 2.86458C7.29167 1.28229 8.45729 0 9.89583 0C11.3344 0 12.5 1.28229 12.5 2.86458C12.5 1.28229 13.6656 0 15.1042 0C16.5427 0 17.7083 1.28229 17.7083 2.86458C17.7083 5.86458 12.5 9.54896 12.5 9.54896ZM13.5594 16.1323C14.2115 16.725 14.5833 17.5646 14.5833 18.4458V25H4.3375L1.09063 21.4458C0.389583 20.6781 0 19.676 0 18.6354V5.72917C0 4.20208 1.31354 2.98229 2.87292 3.13854C4.22812 3.27396 5.20833 4.51562 5.20833 5.87812V9.99687C5.20833 9.99687 4.41667 10.6385 4.26354 10.8073C2.80521 12.4135 2.74792 14.8854 4.13333 16.5562L7.71354 20.1729L9.17604 18.7104L5.79792 15.299C5.16979 14.5406 5.01458 13.4531 5.51458 12.6052C6.28437 11.299 8.00417 11.0875 9.06354 12.05L13.5604 16.1333L13.5594 16.1323ZM19.4875 12.6052C18.7177 11.299 16.9979 11.0875 15.9385 12.05L14.05 13.7646L14.9604 14.5917C15.9167 15.4604 16.4865 16.6615 16.6135 17.9375L19.2042 15.3C19.8323 14.5417 19.9875 13.4542 19.4875 12.6062V12.6052ZM22.3969 3.125C20.9583 3.125 19.7927 4.29062 19.7927 5.72917V9.99583C19.7927 9.99583 20.5844 10.6375 20.7375 10.8062C22.1958 12.4125 22.2531 14.8844 20.8677 16.5552L16.6667 20.8135V25H20.6625L23.9094 21.4458C24.6104 20.6781 25 19.676 25 18.6354V5.72917C25 4.29062 23.8354 3.125 22.3969 3.125Z" fill="#FFFFFF"/>
+            </svg>
+          </div>
+          <div class="benefit-content">
+            <h3>Curadoria especializada</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget nisi vitae felis pulvinar posuere.</p>
+          </div>
+        </div>
+        
+        <!-- Comunidade Integrada -->
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7.8125 13.5417C6.8854 13.5417 5.97912 13.2668 5.20826 12.7517C4.43741 12.2366 3.8366 11.5045 3.48181 10.648C3.12703 9.79147 3.0342 8.84897 3.21507 7.93968C3.39594 7.0304 3.84238 6.19516 4.49794 5.53961C5.1535 4.88405 5.98873 4.43761 6.89801 4.25674C7.8073 4.07587 8.7498 4.1687 9.60633 4.52348C10.4629 4.87827 11.1949 5.47908 11.71 6.24993C12.2251 7.02079 12.5 7.92707 12.5 8.85417C12.4986 10.0969 12.0043 11.2884 11.1255 12.1672C10.2468 13.046 9.05528 13.5403 7.8125 13.5417ZM15.625 20.8333C15.6233 19.4525 15.0741 18.1287 14.0977 17.1523C13.1213 16.1759 11.7975 15.6267 10.4167 15.625H5.20833C3.82751 15.6267 2.50371 16.1759 1.52731 17.1523C0.550919 18.1287 0.00165402 19.4525 0 20.8333L0 25H15.625V20.8333ZM18.2292 9.375C17.3021 9.375 16.3958 9.10009 15.6249 8.58502C14.8541 8.06995 14.2533 7.33786 13.8985 6.48133C13.5437 5.6248 13.4509 4.6823 13.6317 3.77302C13.8126 2.86373 14.259 2.0285 14.9146 1.37294C15.5702 0.717381 16.4054 0.270939 17.3147 0.0900711C18.224 -0.0907971 19.1665 0.00203103 20.023 0.356817C20.8795 0.711603 21.6116 1.31241 22.1267 2.08327C22.6417 2.85412 22.9167 3.7604 22.9167 4.6875C22.9153 5.93028 22.421 7.12176 21.5422 8.00054C20.6634 8.87932 19.4719 9.37362 18.2292 9.375ZM19.7917 11.4583H14.5833C14.4005 11.4667 14.2183 11.4852 14.0375 11.5135C13.6588 12.3899 13.0994 13.1765 12.3958 13.8219C13.9232 14.2541 15.2682 15.1723 16.2268 16.4375C17.1854 17.7028 17.7056 19.246 17.7083 20.8333H25V16.6667C24.9983 15.2858 24.4491 13.962 23.4727 12.9856C22.4963 12.0093 21.1725 11.46 19.7917 11.4583Z" fill="#FFFFFF"/>
+            </svg>
+          </div>
+          <div class="benefit-content">
+            <h3>Comunidade integrada</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget nisi vitae felis pulvinar posuere.</p>
+          </div>
+        </div>
+        
+        <!-- Economia -->
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M23.3651 11.4962C23.0127 10.6123 22.5059 9.78693 21.872 9.06498V5.18359C21.872 4.53791 21.5821 3.93821 21.0754 3.53701C20.577 3.14312 19.9399 3.00103 19.3227 3.14626C17.4198 3.60074 15.9924 4.68105 15.2281 6.2242H9.63629C6.94517 6.2242 4.52931 7.43407 2.94341 9.32618C1.69221 9.14334 1.8434 7.2669 3.10294 7.26899C4.46571 7.26377 4.46675 5.18464 3.10294 5.17941C-0.217954 5.16897 -1.20223 9.78275 1.78084 11.1441C-0.0532132 14.9262 1.54207 19.797 5.18828 21.8135V21.896C5.19036 25.3971 10.1305 26.1985 11.266 22.9408H13.709C14.8444 26.2005 19.7846 25.395 19.7867 21.896V21.7999C21.4132 20.8565 22.6759 19.3969 23.3651 17.6688C24.2211 17.486 25 16.7828 25 15.6273V13.5377C25 12.3822 24.2201 11.679 23.3651 11.4962ZM18.744 13.5377C17.3802 13.5314 17.3802 11.4544 18.744 11.4481C20.1078 11.4544 20.1078 13.5314 18.744 13.5377ZM6.2862 4.66956C5.70023 -1.17185 14.3565 -1.73708 14.5733 4.13463H9.63734C8.46851 4.13463 7.34347 4.32791 6.2862 4.66956Z" fill="#FFFFFF"/>
+            </svg>
+          </div>
+          <div class="benefit-content">
+            <h3>Economia</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget nisi vitae felis pulvinar posuere.</p>
+          </div>
+        </div>
+        
+        <!-- Descobertas -->
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M23.1311 1.20957C21.9425 0.216775 20.3923 -0.194718 18.8005 0.0959314L16.9629 0.545969C14.9815 0.907457 13.5428 2.63156 13.5428 4.64631V22.8437C12.8511 22.9447 12.151 22.9447 11.4593 22.8437V4.64631C11.4593 2.63156 10.0206 0.907457 8.09859 0.559512L6.1401 0.0834304C4.61601 -0.190551 3.06067 0.216775 1.87099 1.20957C0.681307 2.20236 0 3.65977 0 5.20782V18.535C0 21.0529 1.79911 23.2083 4.2764 23.6594L10.8238 24.8501C11.3801 24.9511 11.9395 25.0022 12.5 25.0022C13.0605 25.0022 13.6199 24.9522 14.1762 24.8501L20.7236 23.6594C23.2019 23.2083 25 21.0529 25 18.535V5.20782C25 3.65873 24.3187 2.20132 23.129 1.20957H23.1311ZM7.26623 18.6506C7.15685 19.134 6.7266 19.4611 6.25156 19.4611C6.17551 19.4611 2.89399 18.7246 2.89399 18.7246C2.33249 18.5964 1.98142 18.0391 2.10955 17.4776C2.23769 16.9161 2.79502 16.5661 3.35653 16.6931L6.48179 17.4036C7.0433 17.5318 7.39437 18.0891 7.26623 18.6506ZM9.3539 14.7972C9.25077 15.2889 8.8174 15.6254 8.33507 15.6254C8.26423 15.6254 2.9117 14.5148 2.9117 14.5148C2.34811 14.3971 1.98767 13.845 2.10538 13.2814C2.2231 12.7178 2.77731 12.3595 3.33882 12.4751L8.54759 13.5637C9.11118 13.6814 9.47162 14.2336 9.3539 14.7972ZM9.3539 10.6301C9.25077 11.1219 8.8174 11.4583 8.33507 11.4583C8.26423 11.4583 2.9117 10.3478 2.9117 10.3478C2.34811 10.2301 1.98767 9.67798 2.10538 9.11439C2.2231 8.5508 2.77731 8.19036 3.33882 8.30807L8.54759 9.39671C9.11118 9.51443 9.47162 10.0666 9.3539 10.6301ZM9.3539 6.51001C9.25077 7.00172 8.8174 7.3382 8.33507 7.3382C8.26423 7.3382 2.9117 6.22769 2.9117 6.22769C2.34811 6.10997 1.98767 5.55785 2.10538 4.99426C2.2231 4.43067 2.77731 4.07335 3.33882 4.18794L8.54759 5.27657C9.11118 5.39429 9.47162 5.94642 9.3539 6.51001ZM20.0246 19.0558C20.0246 19.0558 16.7441 19.7924 16.667 19.7924C16.1909 19.7924 15.7617 19.4653 15.6523 18.9819C15.5242 18.4204 15.8763 17.863 16.4368 17.7349L19.562 17.0244C20.1246 16.8973 20.6819 17.2484 20.809 17.8089C20.9372 18.3704 20.5851 18.9277 20.0246 19.0558ZM22.0904 14.5138C22.0904 14.5138 16.7379 15.6243 16.667 15.6243C16.1847 15.6243 15.7513 15.2868 15.6482 14.7961C15.5305 14.2325 15.892 13.6814 16.4545 13.5627L21.6633 12.474C22.2269 12.3595 22.779 12.7178 22.8967 13.2804C23.0144 13.8429 22.6529 14.395 22.0904 14.5138ZM22.0904 10.3468C22.0904 10.3468 16.7379 11.4573 16.667 11.4573C16.1847 11.4573 15.7513 11.1198 15.6482 10.6291C15.5305 10.0655 15.892 9.51443 16.4545 9.39567L21.6633 8.30703C22.2269 8.1914 22.779 8.5508 22.8967 9.11335C23.0144 9.6759 22.6529 10.228 22.0904 10.3468ZM22.0904 6.22665C22.0904 6.22665 16.7379 7.33716 16.667 7.33716C16.1847 7.33716 15.7513 6.99963 15.6482 6.50897C15.5305 5.94538 15.892 5.39429 16.4545 5.27553L21.6633 4.1869C22.2269 4.07439 22.779 4.43067 22.8967 4.99321C23.0144 5.55576 22.6529 6.10789 22.0904 6.22665Z" fill="#FFFFFF"/>
+            </svg>
+          </div>
+          <div class="benefit-content">
+            <h3>Descobertas</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget nisi vitae felis pulvinar posuere.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Seção de Destaque "Tudo em um só lugar" -->
+<section class="highlight-section">
+  <div class="highlight-container">
+    <!-- Conteúdo da esquerda -->
+    <div class="highlight-content">
+      <h2 class="highlight-title">
+        Tudo que você <span class="highlight-span">precisa</span>, junto em um só lugar!
+      </h2>
+    </div>
+    
+    <!-- Visual da direita -->
+    <div class="highlight-visual">
+      <!-- Smartphone central -->
+      <div class="highlight-phone">
+        <img src="{% static 'images/celular-centro.png' %}" alt="App mostrando coleção de livros">
+      </div>
+      
+      <!-- Capas de livros sobrepostas -->
+      <div class="book-covers">
+        <img src="{% static 'images/capa1.png' %}" alt="Capa de livro 1" class="book-cover book-1">
+        <img src="{% static 'images/capa2.png' %}" alt="Capa de livro 2" class="book-cover book-2">
+        <img src="{% static 'images/capa3.png' %}" alt="Capa de livro 3" class="book-cover book-3">
+      </div>
+      
+      <!-- Link Ver mais -->
+      <a href="#" class="see-more-link">
+        Ver mais
+        <svg width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.7476 6.96566L3.13425 1.34307C2.78982 0.998235 2.32274 0.804573 1.83575 0.804688C1.34876 0.804803 0.881769 0.998685 0.537499 1.34368C0.19323 1.68868 -0.000114723 2.15654 5.10703e-08 2.64433C0.000114825 3.13211 0.19368 3.59988 0.538112 3.94471L6.15146 9.56607C6.20845 9.62302 6.25367 9.69067 6.28453 9.76514C6.31538 9.83962 6.33126 9.91946 6.33126 10.0001C6.33126 10.0807 6.31538 10.1606 6.28453 10.235C6.25367 10.3095 6.20845 10.3772 6.15146 10.4341L0.538112 16.0555C0.19368 16.4003 0.000114825 16.8681 5.10703e-08 17.3559C-0.000114723 17.8436 0.19323 18.3115 0.537499 18.6565C0.881769 19.0015 1.34876 19.1954 1.83575 19.1955C2.32274 19.1956 2.78982 19.0019 3.13425 18.6571L8.7476 13.0345C9.54962 12.229 10 11.1377 10 10.0001C10 8.86244 9.54962 7.77121 8.7476 6.96566Z" fill="#DBDBDB"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Seção Nossos Serviços -->
+<section class="services-section">
+  <div class="services-container">
+    <!-- Header da seção -->
+    <div class="services-header">
+      <h2 class="services-title">NOSSOS SERVIÇOS</h2>
+      <h3 class="services-subtitle">CONHEÇA TODAS AS <span class="services-highlight-span">VANTAGENS AZ. FELL</span></h3>
+    </div>
+    
+    <!-- Cards de serviços -->
+    <div class="services-cards">
+      {% for plano in planos %}
+        {% if forloop.last %}
+          <!-- Último plano (imagem como background) -->
+   <div class="service-card card-{{ forloop.counter }}" 
+       style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(14, 37, 70, 0) 100%), 
+                      linear-gradient(0deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), 
+                      url('{% static plano.icone_url %}'); 
+              background-size: cover; 
+              background-position: 0% 75%;
+              border-radius: 15px; 
+              padding: 60px;
+              position: relative;
+              overflow: hidden;">
+            <div class="card-overlay"></div>
+            <div class="card-content">
+              <h4 class="card-title">{{ plano.titulo }}</h4>
+              <p class="card-subtitle">{{ plano.descricao }}</p>
+              <p class="card-description">{{ plano.beneficios }}</p>
+              <a href="#" class="card-cta">VER MAIS</a>
+            </div>
+          </div>
+        {% else %}
+          <!-- Cards normais -->
+          <div class="service-card card-{{ forloop.counter }}">
+            {% if forloop.counter|divisibleby:2 %}
+              <!-- Se for par, imagem à direita -->
+              <div class="card-content">
+                <h4 class="card-title">{{ plano.titulo }}</h4>
+                <p class="card-subtitle">{{ plano.descricao }}</p>
+                <p class="card-description">{{ plano.beneficios }}</p>
+                <a href="#" class="card-cta">VER MAIS</a>
+              </div>
+              <div class="card-image">
+                <img src="{% static plano.icone_url %}" alt="{{ plano.titulo }}">
+              </div>
+            {% else %}
+              <!-- Se for ímpar, imagem à esquerda -->
+              <div class="card-image">
+                <img src="{% static plano.icone_url %}" alt="{{ plano.titulo }}">
+              </div>
+              <div class="card-content">
+                <h4 class="card-title">{{ plano.titulo }}</h4>
+                <p class="card-subtitle">{{ plano.descricao }}</p>
+                <p class="card-description">{{ plano.beneficios }}</p>
+                <a href="#" class="card-cta">VER MAIS</a>
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+
+
+   <script src="{% static 'js/script.js' %}"></script>
+
+  </body>
+</html>
