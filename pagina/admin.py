@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import SiteConfiguration, Usuario, Planos, UsuarioPlano, Noticias, MidiaSobreNos
+from .models import Informacoes, Usuario, Planos, UsuarioPlano, Noticias, MidiaSobreNos, Avaliacoes
 
 @admin.register(Usuario)
 class UsuarioAdmin(admin.ModelAdmin):
@@ -23,14 +23,16 @@ class UsuarioPlanoAdmin(admin.ModelAdmin):
     list_filter = ('plano',)
     readonly_fields = ('data_inicio', 'criado_em', 'atualizado_em') 
 
-@admin.register(SiteConfiguration)
-class SiteConfigurationAdmin(admin.ModelAdmin):
-    list_display = ('endereco', 'telefone', 'email', 'instagram', 'facebook', 'youtube')
+@admin.register(Informacoes)
+class InformacoesAdmin(admin.ModelAdmin):
+    list_display = ('rua_bairro', 'cidade', 'telefone', 'email', 'instagram', 'facebook', 'youtube')
     
     def has_add_permission(self, request):
-        return False
-    
+        # Só permite adicionar se ainda não existir nenhum registro
+        return not Informacoes.objects.exists()
+
     def has_delete_permission(self, request, obj=None):
+        # Não permite deletar
         return False
 
 @admin.register(Noticias)
@@ -47,5 +49,10 @@ class MidiaSobreNosAdmin(admin.ModelAdmin):
     list_filter = ('tipo_midia', 'data_publicacao')
     search_fields = ('titulo', 'descricao')
     ordering = ('-data_publicacao',)
-
+@admin.register(Avaliacoes)
+class AvaliacoesAdmin(admin.ModelAdmin):
+    list_display = ('nome', 'create_at', 'updated_at')
+    search_fields = ('nome', 'texto_avaliacao')
+    readonly_fields = ('create_at', 'updated_at')
+    ordering = ('-create_at',)
 

@@ -1,24 +1,30 @@
 from django.db import models
 from django.contrib.auth.hashers import make_password, check_password
 from django.contrib.auth.models import AbstractUser, Group, Permission
-
-class SiteConfiguration(models.Model):
-    endereco = models.CharField(max_length=255)
-    telefone = models.CharField(max_length=20)
-    email = models.EmailField()
+import phonenumbers
+class Informacoes(models.Model):
+    rua_bairro = models.CharField(max_length=255, null=True, blank=True)
+    cidade = models.CharField(max_length=255, null=True, blank=True)
+    telefone = models.CharField(max_length=20, null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
     instagram = models.URLField(null=True, blank=True)
     facebook = models.URLField(null=True, blank=True)
     youtube = models.URLField(null=True, blank=True)
-    descricao_curta = models.CharField(max_length=255, null=True, blank=True)
-    logo_url = models.CharField(max_length=255, null=True, blank=True)  # se for mudar a logo no futuro
-    favicon_url = models.CharField(max_length=255, null=True, blank=True)
+
+    def telefone_formatado(self):
+        try:
+            numero = phonenumbers.parse(self.telefone, None)  # None aceita qualquer país
+            return phonenumbers.format_number(numero, phonenumbers.PhoneNumberFormat.INTERNATIONAL)
+        except phonenumbers.NumberParseException:
+            return self.telefone
 
     def save(self, *args, **kwargs):
-        self.pk = 1
-        super(SiteConfiguration, self).save(*args, **kwargs)
+        if not self.pk:  # só força pk=1 se ainda não existe
+            self.pk = 1
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return "Configuração do Site"
-
 class Hero(models.Model):
     titulo = models.CharField(max_length=255)
     subtitulo = models.CharField(max_length=255, null=True, blank=True)
@@ -56,7 +62,7 @@ class Planos(models.Model):
     descricao = models.TextField()
     beneficios = models.TextField()
     preco = models.DecimalField(max_digits=10, decimal_places=2)
-    icone_url = models.CharField(max_length=255, null=True, blank=True)
+    image = models.ImageField(upload_to="pasta_pl")
     destaque = models.BooleanField(default=False)
     criado_em = models.DateTimeField(auto_now_add=True)
     atualizado_em = models.DateTimeField(auto_now=True)
@@ -121,9 +127,9 @@ class MidiaSobreNos(models.Model):
     def __str__(self):
         return f"{self.titulo} ({self.tipo_midia})"
     
-class avaliacoes(models.Model):
+class Avaliacoes(models.Model):
     nome = models.CharField(max_length=255)
     texto_avaliacao=models.TextField()
-    imagem = models.ImageField(upload_to="pasta")
+    imagem = models.ImageField(upload_to="pasta_av")
     create_at = models.DateTimeField(auto_now_add=True)  #Criando em:
     updated_at = models.DateTimeField(auto_now=True) #Data de modificação
