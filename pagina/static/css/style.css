@@ -149,6 +149,7 @@ nav a:hover {
   background: #ffffff;
   color: #000;
   border: none;
+  text-decoration: none;   
   padding: 0.8rem 2rem;
   border-radius: 50px;
   font-weight: 600;
@@ -162,6 +163,7 @@ nav a:hover {
 .cta-button::before {
   content: "";
   position: absolute;
+    text-decoration: none;   
   top: 0;
   left: -100%;
   width: 100%;
@@ -403,6 +405,7 @@ nav a:hover {
 /* Seção de Planos */
 .pricing-section {
   padding: 80px 2rem;
+ height: 600px; 
   position: relative;
   background: var(--dark-bg);
   overflow: hidden;

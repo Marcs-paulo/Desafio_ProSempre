@@ -1,9 +1,12 @@
 from django.shortcuts import render
-from .models import Informacoes, Planos, Avaliacoes
+from .models import Informacoes, Planos, Avaliacoes, SiteConfiguration
 
 def home(request):
-    # Pega a primeira configuração do site (supondo que só exista uma)
+    # Pega a primeira configuração de contatos/rodapé
     site_config = Informacoes.objects.first()
+
+    # Pega a configuração geral do site (singleton)
+    site_configuration = SiteConfiguration.objects.first()
 
     # Todos os planos disponíveis
     planos = Planos.objects.all()
@@ -13,7 +16,8 @@ def home(request):
 
     # Monta o contexto que será enviado para o template
     context = {
-        'info': site_config,   # <-- aqui passamos o registro correto
+        'info': site_config,             # Configurações de contato
+        'site_config': site_configuration,  # Configurações gerais (sobre nós, redes, etc.)
         'planos': planos,            
         'depoimentos': depoimentos,  
     }

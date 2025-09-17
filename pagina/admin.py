@@ -1,6 +1,30 @@
 from django.contrib import admin
-from .models import Informacoes, Usuario, Planos, UsuarioPlano, Noticias, MidiaSobreNos, Avaliacoes
+from .models import Informacoes, Usuario, Planos, UsuarioPlano, Noticias, MidiaSobreNos, Avaliacoes, SiteConfiguration,Beneficio
 
+class BeneficioInline(admin.StackedInline):
+    model = Beneficio
+    extra = 0
+    can_delete = True  # habilita remoção
+    verbose_name = "Benefício"
+    verbose_name_plural = "Benefícios"
+@admin.register(SiteConfiguration)
+class SiteConfigurationAdmin(admin.ModelAdmin):
+    fieldsets = (
+        ("🔗 Navbar Links", {
+            "fields": ("navbar_home_link", "navbar_noticias_link", "navbar_blog_link", "navbar_sobre_link", "navbar_testar_link")
+        }),
+        ("💰 Seção de Preço", {
+            "fields": ("preco_titulo", "preco_valor", "preco_disclaimer", "preco_botao_texto", "preco_botao_link")
+        }),
+("🎯 Benefícios", {
+    "fields": ("beneficios_parte1", "beneficios_parte2", "beneficios_parte3"),
+}),
+
+        ("ℹ️ Sobre Nós", {
+            "fields": ("sobre_nome", "sobre_cargo", "sobre_texto", "sobre_imagem")
+        }),
+    )
+    inlines = [BeneficioInline]
 @admin.register(Usuario)
 class UsuarioAdmin(admin.ModelAdmin):
     list_display = ('username', 'nome_completo', 'email', 'perfil', 'data_de_registro', 'last_login')

@@ -24,7 +24,63 @@ class Informacoes(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
+        return "Configuração do Rodapé"
+    
+class SiteConfiguration(models.Model):
+    # --- Navbar Links ---
+    navbar_home_link = models.URLField(blank=True, null=True, default="#home")
+    navbar_noticias_link = models.URLField(blank=True, null=True, default="#noticias")
+    navbar_blog_link = models.URLField(blank=True, null=True, default="#blog")
+    navbar_sobre_link = models.URLField(blank=True, null=True, default="#sobre")
+    navbar_testar_link = models.URLField(blank=True, null=True, default="#")
+    # --- Seção: Preço --- (Agora vem antes do Sobre Nós)
+    preco_titulo = models.CharField(max_length=255, blank=True, null=True)
+    preco_valor = models.CharField(max_length=50, blank=True, null=True)
+    preco_disclaimer = models.CharField(max_length=255, blank=True, null=True)
+    preco_botao_texto = models.CharField(max_length=50, blank=True, null=True)
+    preco_botao_link = models.URLField(blank=True, null=True)
+
+    # --- Seção: Sobre Nós ---
+    sobre_nome = models.CharField(max_length=255, blank=True, null=True)
+    sobre_cargo = models.CharField(max_length=255, blank=True, null=True)
+    sobre_texto = models.TextField(blank=True, null=True)
+    sobre_imagem = models.ImageField(upload_to="quem_somos/", blank=True, null=True)
+
+    # --- Benefícios ---
+    beneficios_parte1 = models.CharField(max_length=255, blank=True, null=True, default="Benefícios")
+    beneficios_parte2 = models.CharField(max_length=255, blank=True, null=True, default="do nosso plano")
+    beneficios_parte3 = models.CharField(max_length=255, blank=True, null=True, default="Angelical")
+
+
+
+
+    def save(self, *args, **kwargs):
+        if not self.pk:  # garante singleton
+            self.pk = 1
+        super().save(*args, **kwargs)
+
+    def __str__(self):
         return "Configuração do Site"
+
+
+class Beneficio(models.Model):
+    site = models.ForeignKey(
+        SiteConfiguration,
+        on_delete=models.CASCADE,
+        related_name="beneficios"
+    )
+    titulo = models.CharField(max_length=255)
+    texto = models.TextField()
+    imagem = models.ImageField(upload_to="beneficios/", blank=True, null=True)
+    ordem = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ["ordem"]
+
+    def __str__(self):
+        return self.titulo
+
+
 class Hero(models.Model):
     titulo = models.CharField(max_length=255)
     subtitulo = models.CharField(max_length=255, null=True, blank=True)
