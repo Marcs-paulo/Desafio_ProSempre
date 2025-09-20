@@ -149,7 +149,6 @@ nav a:hover {
   background: #ffffff;
   color: #000;
   border: none;
-  text-decoration: none;   
   padding: 0.8rem 2rem;
   border-radius: 50px;
   font-weight: 600;
@@ -163,7 +162,6 @@ nav a:hover {
 .cta-button::before {
   content: "";
   position: absolute;
-    text-decoration: none;   
   top: 0;
   left: -100%;
   width: 100%;
@@ -204,7 +202,7 @@ nav a:hover {
       rgba(14, 38, 70, 0.7) 96.67%
     ),
     linear-gradient(0deg, rgba(27, 66, 113, 0.5), rgba(27, 66, 113, 0.5)),
-    url("../Images/woman-reading.png");
+    url("/static/Images/woman-reading.png");
   transform: rotate(-30deg);
   opacity: 1;
   background-size: cover;
@@ -405,7 +403,6 @@ nav a:hover {
 /* Seção de Planos */
 .pricing-section {
   padding: 80px 2rem;
- height: 600px; 
   position: relative;
   background: var(--dark-bg);
   overflow: hidden;
@@ -2047,7 +2044,8 @@ nav a:hover {
     font-size: 16px;
     font-weight: 400;
     opacity: 0.8;
-    margin-top: 60%;
+    margin-top: 10%;
+    margin-right: 75px;
 }
 
 .contact-info {
@@ -2110,9 +2108,12 @@ nav a:hover {
     order: -1;       
     flex: 1 1 100%;
   }
-  .copyright { 
+
+  .copyright{ 
+    text-align: center;
     margin-top: 20px; 
   }
+
   .brand-logo { justify-items: start; }
 }
 
