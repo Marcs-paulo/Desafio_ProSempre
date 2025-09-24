@@ -1,0 +1,340 @@
+/* Layout do Artigo */
+.article-layout {
+  max-width: 1200px;
+  margin: 100px auto 50px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  gap: 40px;
+}
+
+/* Conteúdo do Artigo */
+.article-content {
+  background: #173963;
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.article-title {
+  font-size: 2.5em;
+  color: #fff;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+/* Metadados do artigo */
+.article-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.author-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.author-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-name {
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.95em;
+}
+
+.publish-date {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85em;
+}
+
+/* Tags (iguais a do blog) */
+.category-tag {
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9em;
+}
+
+.tag-dicas {
+  background: #f130ff;
+}
+
+.tag-lancamentos {
+  background: #ff9f00;
+}
+
+.tag-classicos {
+  background: #21ff49;
+}
+
+.tag-noticia {
+  background: #ff3939;
+}
+
+.tag-resenha {
+  background: #2e2eff;
+}
+
+/* Botão de Compartilhamento com dropdown */
+.share-wrapper {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.btn-share {
+  background: #4a90e2;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.3s;
+}
+
+.btn-share:hover {
+  background: #357abd;
+}
+
+.share-dropdown {
+    display: none; /* Inicialmente oculto */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 10px;
+    border-radius: 25px;
+    overflow: hidden;
+    z-index: 10;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px;
+}
+
+.share-dropdown.active {
+    display: flex; /* Exibido com JS */
+    flex-direction: row;
+    
+}
+
+.share-item {
+    background-color: #3574B1;
+  color: #fff;
+  
+  /* Define o tamanho do botão quadrado */
+  width: 45px;
+  height: 45px;
+  border-radius: 10px; /* Borda arredondada para cada ícone */
+
+  /* Centraliza o ícone perfeitamente dentro do quadrado */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+}
+
+.share-item:hover {
+    background-color: #3574B1;
+    transform: translateY(-3px); /* Efeito sutil ao passar o mouse */
+}
+
+
+/* Imagem do artigo */
+.article-image {
+  margin-bottom: 30px;
+}
+
+.article-image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.article-image figcaption {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9em;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Body do artigo */
+.article-body {
+  margin-bottom: 30px;
+}
+
+.article-body p {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-size: 1.05em;
+}
+
+.article-body .highlight {
+  background: rgba(74, 144, 226, 0.1);
+  border-left: 4px solid #4a90e2;
+  padding: 20px;
+  margin: 30px 0;
+  font-style: italic;
+}
+
+/* Barra Lateral */
+.sidebar {
+  background: #173963;
+  padding: 30px;
+  border-radius: 10px;
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.sidebar-title {
+  color: #fff;
+  font-size: 1.5em;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #4a90e2;
+}
+
+/* Cartões de Postagens da Barra Lateral */
+.sidebar-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-post-card {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  background: rgba(42, 53, 68, 0.5);
+  border-radius: 8px;
+  transition: background 0.3s;
+  cursor: pointer;
+}
+
+.sidebar-post-card:hover {
+  background: rgba(74, 144, 226, 0.1);
+}
+
+.post-thumb {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+
+.post-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.post-title {
+  color: #fff;
+  font-size: 0.95em;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.post-author {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8em;
+}
+
+.post-meta {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.post-date {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.75em;
+}
+
+.post-category {
+  background: rgba(74, 144, 226, 0.3);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.75em;
+}
+
+/* Responsividade notícias*/
+@media (min-width: 968px) {
+  .category-tag {
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .post-meta {
+    display: table-row;
+    gap: 5px;
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 968px) {
+  .article-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .article-title {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 768px) {
+  .article-content {
+    padding: 25px;
+  }
+
+  .article-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .article-title {
+    font-size: 1.8em;
+  }
+
+  .sidebar {
+    padding: 20px;
+  }
+
+  .sidebar-post-card {
+    flex-direction: column;
+  }
+
+  .post-thumb {
+    width: 100%;
+    height: 150px;
+  }
+}

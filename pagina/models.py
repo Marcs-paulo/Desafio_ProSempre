@@ -28,11 +28,12 @@ class Informacoes(models.Model):
     
 class SiteConfiguration(models.Model):
     # --- Navbar Links ---
-    navbar_home_link = models.URLField(blank=True, null=True, default="#home")
-    navbar_noticias_link = models.URLField(blank=True, null=True, default="#noticias")
-    navbar_blog_link = models.URLField(blank=True, null=True, default="#blog")
-    navbar_sobre_link = models.URLField(blank=True, null=True, default="#sobre")
-    navbar_testar_link = models.URLField(blank=True, null=True, default="#")
+    navbar_home_link = models.CharField(max_length=200, blank=True, null=True, default="/home")
+    navbar_noticias_link = models.CharField(max_length=200, blank=True, null=True, default="/noticias")
+    navbar_blog_link = models.CharField(max_length=200, blank=True, null=True, default="/blog")
+    navbar_sobre_link = models.CharField(max_length=200, blank=True, null=True, default="/sobre")
+    navbar_testar_link = models.CharField(max_length=200, blank=True, null=True, default="/testar")
+
     # --- Seção: Preço --- (Agora vem antes do Sobre Nós)
     preco_titulo = models.CharField(max_length=255, blank=True, null=True)
     preco_valor = models.CharField(max_length=50, blank=True, null=True)
